@@ -381,6 +381,7 @@ class Sources(DisplayWindow):
 
         if control.getSetting('general.nameFilter.enabled') == 'true':
             file_name_filter = control.getSetting('general.nameFilter.value')
+            _torrent_list = torrent_list
             torrent_list = [i for i in _torrent_list if file_name_filter in i['release_title']]
         # Get the value of the 'sourcesort.menu' setting
         sort_option = control.getSetting('general.sourcesort')
