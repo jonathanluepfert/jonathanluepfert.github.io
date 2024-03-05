@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<addons><addon id="context.otaku" version="0.0.12" name="otaku - Global Context Menu Items" provider-name="TeamOtaku">
+  <requires>
+    
+  </requires>
+  <extension point="kodi.context.item">
+    <menu id="kodi.core.main">
+      <item library="rescrape.py">
+        <label>Rescrape Item</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,episode)]</visible>
+      </item>
+      <item library="sourceSelect.py">
+        <label>Source Select</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,episode)|String.IsEqual(ListItem.dbtype,movie)]</visible>
+      </item>
+      <item library="findRecommendations.py">
+        <label>Find Recommendations</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,tvshow)|String.IsEqual(ListItem.dbtype,movie)]</visible>
+      </item>
+      <item library="findRelations.py">
+        <label>Find Relations</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,tvshow)|String.IsEqual(ListItem.dbtype,movie)]</visible>
+      </item>
+      <item library="getWatchOrder.py">
+        <label>Get Watch Order</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,tvshow)|String.IsEqual(ListItem.dbtype,movie)]</visible>
+      </item>
+      <item library="watchlist.py">
+        <label>Watchlist Manager</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.IsEqual(ListItem.dbtype,tvshow)|String.IsEqual(ListItem.dbtype,movie)]</visible>
+      </item>
+
+      <item library="watchlistLogout.py">
+        <label>Logout</label>
+        <visible>String.StartsWith(ListItem.path,plugin://plugin.video.otaku/)+[String.Contains(ListItem.folderpath,/watchlist/)]</visible>
+      </item>
+    </menu>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">otaku - This Addon is currently in beta. Please be aware there may be bugs present</summary>
+    <description lang="en">Adds Global Contextual Menu Items for otaku menu items throughout Kodi
+    </description>
+    <platform>all</platform>
+    <license>GPL-3.0</license>
+    <forum />
+    <website />
+    <source />
+    <disclaimer lang="en" />
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+    <news>
+Changelog 0.0.10:
+- Initial release
+    </news>
+  </extension>
+</addon><addon id="plugin.video.otakumod" name="Otakumod" provider-name="TeamOtaku" version="0.4.86">
+  <requires>
+    
+    <import addon="script.module.beautifulsoup4" version="4.5.3" />
+    <import addon="script.module.inputstreamhelper" version="0.3.3" />
+    <import addon="script.module.six" version="1.15.0" />
+    <import addon="script.module.kodi-six" version="0.1.3" />
+    <import addon="context.otaku" version="0.0.12" />
+    <import addon="script.otaku.themepak" version="0.0.11" />
+    <import addon="script.otaku.mappings" />
+    
+  </requires>
+  <extension library="default.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" />
+  <extension point="xbmc.addon.metadata">
+    <reuselanguageinvoker>false</reuselanguageinvoker> 
+    <summary lang="en">Otaku video plugin</summary>
+    <description lang="en">HD Animes</description>
+    <platform>all</platform>
+    <disclaimer>Otaku is and always will be free and open-source. None of its code and resources may be sold or redistributed for any commercial purposes.[CR]This addon and its developers [B]DO NOT[/B] host, create, or distribute any of the content displayed in the addon, it simply scrapes ad financed public websites. It is the responsibility of the user to ensure that they are following all applicable laws and regulations in their country.[CR]This addon and its developers are not in any way affiliated with Team Kodi or any of the sites and providers used in the addon.</disclaimer>
+    <license>GPL-3.0</license>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+  </extension>
+</addon><addon id="repository.keineahnungking" name="My Repository" version="0.0.1" provider-name="keineahnungking">
+    <extension point="xbmc.addon.repository" name="Example Repository">
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/jonathanluepfert/keineahnungking.github.io/master/repo/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jonathanluepfert/keineahnungking.github.io/master/repo/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jonathanluepfert/keineahnungking.github.io/master/repo/zips/</datadir>
+        </dir>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>My Repo</summary>
+        <description>no</description>
+        <disclaimer />
+        <platform>all</platform>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon><addon id="script.otaku.mappings" version="24.03.0" name="Otaku Mappings" provider-name="TeamOtaku">
+    <extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+        <summary>Anime ID Mappings for Otaku Addon</summary>
+        <description>Mappings for Otaku are maintained separately to make distribution of the the addon itself easier/faster.</description>
+        <platform>all</platform>
+        <license>GPL-2.0</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon><addon id="script.otaku.themepak" version="0.0.11" name="Otaku Themepak" provider-name="TeamOtaku">
+    <requires>
+        <import addon="kodi.resource" version="1.0.0" />
+    </requires>
+    <extension point="kodi.resource.images" compile="false" type="themepak" />
+    <extension point="xbmc.addon.metadata">
+        <summary>Themes for the Otaku Addon</summary>
+        <description>Themes for Otaku are maintained separately to make distribution of the the addon itself easier/faster.</description>
+        <platform>all</platform>
+        <license>GPL-2.0</license>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+        </assets>
+    </extension>
+</addon></addons>
