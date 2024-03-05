@@ -1096,7 +1096,11 @@ msgid "Disable connection error notifications?"
 msgstr ""
 
 msgctxt "#40531"
-msgid "Source filtering by filename"
+msgid "Source Filtering by Filename"
+msgstr ""
+
+msgctxt "#40532"
+msgid "Filename Filter"
 msgstr ""
 
 ######MAIN Category DIRECTORY#######
