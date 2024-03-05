@@ -379,6 +379,9 @@ class Sources(DisplayWindow):
 
             torrent_list = [i for i in _torrent_list if i['size'] != 'NA' and min_GB <= float(i['size'][:-3]) <= max_GB]
 
+        if control.getSetting('general.nameFilter.enabled') == 'true':
+            file_name_filter = control.getSetting('general.nameFilter.value')
+            torrent_list = [i for i in _torrent_list if file_name_filter in i['release_title']]
         # Get the value of the 'sourcesort.menu' setting
         sort_option = control.getSetting('general.sourcesort')
 
