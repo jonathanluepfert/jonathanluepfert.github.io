@@ -1095,6 +1095,10 @@ msgctxt "#40530"
 msgid "Disable connection error notifications?"
 msgstr ""
 
+msgctxt "#40531"
+msgid "Source filtering by filename"
+msgstr ""
+
 ######MAIN Category DIRECTORY#######
 msgctxt "#50000"
 msgid "Airing Anime Calendar"
